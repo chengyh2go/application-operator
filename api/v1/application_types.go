@@ -17,8 +17,8 @@ limitations under the License.
 package v1
 
 import (
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	corev1 "k8s.io/api/core/v1"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
@@ -32,7 +32,7 @@ type ApplicationSpec struct {
 	// Foo is an example field of Application. Edit application_types.go to remove/update
 	Replicas int32 `json:"replicas,omitempty"`
 	Template corev1.PodTemplateSpec `json:"template,omitempty"`
-	
+
 }
 
 // ApplicationStatus defines the observed state of Application
