@@ -23,11 +23,11 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"time"
 
+	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
-	corev1 "k8s.io/api/core/v1"
 
 	appsv1 "github.com/chengyh2go/application-operator/api/v1"
 )
@@ -41,6 +41,7 @@ type ApplicationReconciler struct {
 //+kubebuilder:rbac:groups=apps.pab.com.cn,resources=applications,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=apps.pab.com.cn,resources=applications/status,verbs=get;update;patch
 //+kubebuilder:rbac:groups=apps.pab.com.cn,resources=applications/finalizers,verbs=update
+//+kubebuilder:rbac:groups="",resources=pods,verbs=get;list;watch;create;update;patch;delete
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
