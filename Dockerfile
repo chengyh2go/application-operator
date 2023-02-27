@@ -2,6 +2,7 @@
 FROM golang:1.19 as builder
 ARG TARGETOS
 ARG TARGETARCH
+ENV GOPROXY=https://goproxy.cn
 
 WORKDIR /workspace
 # Copy the Go Modules manifests
