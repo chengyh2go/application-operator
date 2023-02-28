@@ -55,7 +55,7 @@ type ApplicationReconciler struct {
 func (r *ApplicationReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	l := log.FromContext(ctx)
 
-	//get the Application
+	//获取Application对象
 	app	:= &appsv1.Application{}
 	if err:= r.Get(ctx, req.NamespacedName, app); err != nil {
 		if errors.IsNotFound(err) {
@@ -66,7 +66,7 @@ func (r *ApplicationReconciler) Reconcile(ctx context.Context, req ctrl.Request)
 		return ctrl.Result{RequeueAfter: 1 * time.Minute}, err
 	}
 
-	//create pod
+	//创建pod
 	for i := 0; i < int(app.Spec.Replicas); i++ {
 		pod := &corev1.Pod{
 			ObjectMeta: metav1.ObjectMeta{
